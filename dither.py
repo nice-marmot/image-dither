@@ -31,22 +31,11 @@ def floyd_steinberg(im_source, palette):
 
 image = np.array(Image.open('20211003_134230.jpg').convert('L'))
 
-image = 1 - image
-
-palette = np.linspace(0, 255, 5)
+palette = np.round(np.linspace(0, 255, 5))
 
 FS_image = floyd_steinberg(image, palette)
 
 CV_image = closest_value(image, palette)
 
-plt1 = pyplot.figure(1)
-pyplot.imshow(FS_image)
-pyplot.axis('off')
-pyplot.set_cmap('Greys')
-
-plt1 = pyplot.figure(2)
-pyplot.imshow(CV_image)
-pyplot.axis('off')
-pyplot.set_cmap('Greys')
-
-pyplot.show()
+pyplot.imsave("outputs/closest_value.png", CV_image, cmap='Greys_r')
+pyplot.imsave("outputs/floyd_steinberg.png", FS_image, cmap='Greys_r')
