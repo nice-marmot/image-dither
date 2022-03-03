@@ -2,7 +2,7 @@
 
 Dithering is a class of methods that apply noise/distortions to a set of data to minimize quantization error.
 
-This is intended to highlight differences and effectiveness of different dithering methods, not necessarily to replicate the original image. Dithering is done with a 5-color greyscale color palette unless otherwise specified. While the below dithering methods work for color images as well, I'm keeping them to greyscale for the moment to keep comparisons to luminance and texture.
+This is intended to highlight differences and effectiveness of different dithering methods, not necessarily to replicate the original image. Dithering is done with a 5-color greyscale color palette unless otherwise specified. A larger color palette would result in closer replication of the original image, but the small palette used here highlights differences between methods. The below dithering methods work for color images as well, but I'm keeping them to greyscale for the moment to limit comparisons to luminance and texture.
 
 ## Original image:
 ![Original image](outputs/original.jpg)
