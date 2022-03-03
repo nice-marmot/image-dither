@@ -9,8 +9,8 @@ Playing around with some dithering algorithms. This is intended to highlight dif
 Values in original image mapped to greyscale by luminance. This is used as the input for each dithering algorithm. 
 ![Greyscale image](outputs/greyscale.png)
 
-## Closest value dithering:
-Greyscale palette generated with 5 values (white -> 3 shades of Grey -> Black). Values in image mapped to closest value available in palette. Notice that much of the detail has been erased and there is very visible banding when the image changes colors.
+## Closest value mapping:
+This method is not dithering, but rather a simple mapping of each greyscale pixel to one of five colors (white -> 3 shades of Grey -> Black). This is sort of a worst-case dithering application, as much of the details in the original image are lost, there is very visible color banding, etc. Essentially, this is what happens when the number of colors in the image is reduced with little finesse. Dithering attempts to reproduce the details of the original image, while still only needing a small set of base colors.
 ![Floyd-Steinberg](outputs/closest_value.png)
 
 ## Floyd-steinberg dithering:
