@@ -2,7 +2,6 @@ import numpy as np
 from PIL import Image
 from matplotlib import image
 from matplotlib import pyplot
-from sklearn.cluster import KMeans
 
 def generate_palette(image, k):
     return 
