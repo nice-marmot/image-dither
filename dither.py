@@ -45,7 +45,16 @@ def bayer_dithering(im_source, palette):
     for i in range(1,len(im_source)-1):
         for j in range(1,len(im_source[0])-1):
             new_color = im_source[i][j] + 8*bayer_matrix[i%8][j%8]
-            val = np.argmin(abs(new_color - palette ))
+            val = np.argmin(abs(new_color - palette))
+            new_image[i][j] = palette[val]
+    return new_image
+    
+def whitenoise_dithering(im_source, palette):
+    new_image = np.zeros((len(im_source), len(im_source[0])))
+    for i in range(1,len(im_source)-1):
+        for j in range(1,len(im_source[0])-1):
+            new_color = im_source[i][j] + 20*np.random.rand(1,1)
+            val = np.argmin(abs(new_color - palette))
             new_image[i][j] = palette[val]
     return new_image
 
@@ -62,7 +71,11 @@ FS_image = floyd_steinberg(image, palette)
 # Bayer dithering / ordered dithering
 OD_image = bayer_dithering(image, palette)
 
+# Gaussian noise
+WN_image = whitenoise_dithering(image, palette)
+
 pyplot.imsave("outputs/greyscale.png", image, cmap='Greys_r')
 pyplot.imsave("outputs/closest_value.png", CV_image, cmap='Greys_r')
 pyplot.imsave("outputs/floyd_steinberg.png", FS_image, cmap='Greys_r')
 pyplot.imsave("outputs/ordered_dithering.png", OD_image, cmap='Greys_r')
+pyplot.imsave("outputs/whitenoise_dithering.png", WN_image, cmap='Greys_r')
