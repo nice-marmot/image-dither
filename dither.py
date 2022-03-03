@@ -37,5 +37,6 @@ FS_image = floyd_steinberg(image, palette)
 
 CV_image = closest_value(image, palette)
 
+pyplot.imsave("outputs/greyscale.png", image, cmap='Greys_r')
 pyplot.imsave("outputs/closest_value.png", CV_image, cmap='Greys_r')
 pyplot.imsave("outputs/floyd_steinberg.png", FS_image, cmap='Greys_r')
