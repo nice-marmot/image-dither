@@ -1,4 +1,4 @@
-# image_dithering
+# Methods of image dithering
 
 Dithering is a class of methods that apply noise/distortions to a set of data to minimize quantization error.
 
@@ -23,3 +23,7 @@ This process also maps pixels in the full greyscale image to values in the palet
 Ordered dithering selects each pixel's value via a texture map based on a Bayer matrix. This matrix adds a pattern of offsets across the whole image applied over an nxn pixel area. This example uses an 8x8 [bayer matrix](https://en.wikipedia.org/wiki/Ordered_dithering), meaning the pattern is applied in 64-pixel squares across the whole image. A characteristic of this dithering method is the hatching patterns that it creates in many areas of the image (see the zoomed-in image below). For this particular image, this method does a good job or replicating the gradients in the water close to the camera, as well as some of the tree reflections along the shore line.
 ![Ordered dithering](outputs/ordered_dithering.png)
 ![Ordered dithering closeup](outputs/ordered_dithering_zoom.png)
+
+## White noise dithering
+This method adds a random value to each pixel, thus forcing some pixels to change colors. This fuzzing helps to soften gradients, but the added noise reduces the detail in parts of the image, giving the final produce a somewhat grainy appearance. For the below image, I added a random +/-10 offset to each pixel value (which ranges from 0-255). This value could be tuned to a user's liking to best soften gradients in their image. Further enhancements could be using different noise distributions, such as brown noise to prioritize large gradients, pink noise to prioritize small gradients, etc.
+![White noise](outputs/whitenoise_dithering.png)
