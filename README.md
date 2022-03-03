@@ -6,7 +6,7 @@ Playing around with some dithering algorithms. This is intended to highlight dif
 ![Original image](outputs/original.jpg)
 
 ## Greyscale image:
-Values in original image mapped to greyscale by luminance. This is used by each dithering algorithm. 
+Values in original image mapped to greyscale by luminance. This is used as the input for each dithering algorithm. 
 ![Greyscale image](outputs/greyscale.png)
 
 ## Closest value dithering:
